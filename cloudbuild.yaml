@@ -1,0 +1,30 @@
+options:
+  logging: CLOUD_LOGGING_ONLY
+steps:
+  # build docker image prebuilt image from google
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '-t', 'gcr.io/fresh-oath-443111-s7/chatbot-app:latest', '.']
+
+  # push image container to google container/artifact registry (GCR/ACR)
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['push', 'gcr.io/fresh-oath-443111-s7/chatbot-app:latest']
+
+  # authenticate to GKE
+- name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+  entrypoint: 'bash'
+  args:
+    - '-c'
+    - |
+      gcloud container clusters get-credentials chatbot-cluster --zone us-central1 --project fresh-oath-443111-s7
+
+  # deploy kube config files to google kubernetes engine (GKE)
+- name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+  entrypoint: 'bash'
+  args: 
+    - '-c'
+    - |
+      kubectl apply -f kubernetes/deployment.yaml
+      kubectl apply -f kubernetes/service.yaml
+
+images:
+  - 'gcr.io/fresh-oath-443111-s7/chatbot-app:latest'
