@@ -22,4 +22,4 @@ spec:
               valueFrom:
                 secretKeyRef:
                   name: openai-api-key  # This matches the Kubernetes secret name
-                  key: value             # This points to the key inside the Kubernetes secret
+                  key: OPENAI_API_KEY    # This matches the key in the secret

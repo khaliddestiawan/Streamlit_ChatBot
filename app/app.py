@@ -2,11 +2,14 @@ import os
 import time
 import streamlit as st
 from openai import OpenAI
+from dotenv import load_dotenv  # Import dotenv to load environment variables
 
-# Add Tittle & Caption
+# Load environment variables from .env file
+load_dotenv()
+
+# Add Title & Caption
 st.title("💬 AI Fellowship Batch 1 CI/CD Hands On")
 st.caption("🚀 OpenAI Powered Assistant (GPT 3.5 Turbo) *by Khaliddestiawan*")
-
 
 # Set custom theme with CSS
 st.markdown(
