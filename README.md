@@ -16,25 +16,25 @@ This project implements a CI/CD pipeline utilizing **Google Cloud Build**, **Goo
 
 ## 🖼️ Architecture Diagram
 
-![Architecture Diagram](images\infra_img.png)
+![Architecture Diagram](images/infra_img.png)
 
 ## 📸
 
 ### 💰 Budget Alert
 
-![Budget Alert](images\budget_img.png) 
+![Budget Alert](images/budget_img.png) 
 
 
 ### 🔄 Trigger Build
 
 
-![Trigger Build](images\trigger_img.png) 
+![Trigger Build](images/trigger_img.png) 
 
 
 ### 🖥️ Application Snapshot
 
 
-![Application Snapshot](images\app_img.png)
+![Application Snapshot](images/app_img.png)
 
 
 ## 🚀 Getting Started
