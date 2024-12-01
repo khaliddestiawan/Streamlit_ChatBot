@@ -7,7 +7,6 @@ spec:
     app: streamlit-service
   type: LoadBalancer
   ports:
-    - port: 80
+    - protocol: TCP
+      port: 80
       targetPort: 8501
-  selector:
-    app: streamlit-app
