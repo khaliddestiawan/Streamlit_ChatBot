@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: streamlit-app
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
       app: streamlit-app
@@ -16,7 +16,7 @@ spec:
         - name: streamlit-app
           image: gcr.io/fresh-oath-443111-s7/chatbot-app:latest
           ports:
-            - containerPort: 8501
+            - containerPort: 80
           env:
             - name: OPENAI_API_KEY
               valueFrom:
